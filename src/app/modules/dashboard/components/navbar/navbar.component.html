@@ -1,0 +1,64 @@
+<div class="relative bg-background">
+  <div class="mx-auto px-5">
+    <div class="flex items-center justify-between py-3.5 md:justify-start">
+      <!-- Mobile Navigation Menu Button-->
+      <div class="sm:order-1 md:hidden">
+        <button
+          (click)="toggleMobileMenu()"
+          type="button"
+          class="inline-flex items-center justify-center rounded-md bg-muted p-2 text-muted-foreground focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary hover:bg-muted-foreground hover:text-muted"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open menu</span>
+          <!-- Heroicon name: outline/menu -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Logo -->
+      <div
+        class="flex items-center justify-start sm:order-2 md:mr-10 lg:hidden"
+      >
+        <b class="hidden pl-3 text-sm font-bold text-foreground sm:block">
+          Devops Framework
+        </b>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden space-x-10 sm:order-3 md:flex">
+        <app-navbar-menu></app-navbar-menu>
+      </div>
+
+      <!-- Profile menu -->
+      <div class="items-center justify-end sm:order-4 md:flex md:flex-1 lg:w-0">
+        <button
+          class="relative flex rounded-full bg-card text-sm"
+          type="button"
+        >
+          <span class="sr-only">Open user menu</span>
+          <img
+            clickOutside
+            class="h-9 w-9 rounded-md"
+            src="https://www.monkeywit.dev/assets/images/juan-pablo.jpeg"
+            alt=""
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Mobile menu -->
+  <app-navbar-mobile></app-navbar-mobile>
+</div>

@@ -1,0 +1,31 @@
+<div class="flex h-screen w-full overflow-hidden">
+  <!-- Sidebar -->
+  <app-sidebar></app-sidebar>
+
+  <div class="flex grow flex-col content-start overflow-hidden bg-card">
+    <!-- Navbar -->
+    <app-navbar></app-navbar>
+    <!-- Content -->
+    <button class="bg-primary text-white p-2 rounded mt-4" (click)="openModal()">Open Modal</button>
+
+    <app-modal
+      [isVisible]="isModalVisible"
+      [contentTemplate]="modalContent"
+      (onClose)="closeModal()"
+    ></app-modal>
+
+    <ng-template #modalContent>
+      <div>
+        <h2>Dynamic Modal Content</h2>
+        <p>This content is passed to the modal dynamically.</p>
+      </div>
+    </ng-template>
+
+    <div
+      id="main-content"
+      class="grow overflow-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-track-rounded scrollbar-track-transparent scrollbar-thumb-muted"
+    >
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

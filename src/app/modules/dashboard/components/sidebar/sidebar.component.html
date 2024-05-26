@@ -1,0 +1,101 @@
+<nav
+  [ngClass]="menuService.showSideBar ? 'w-52 xl:w-64' : 'w-[70px]'"
+  class="scrollbar-thumb-rounded scrollbar-track-rounded hidden h-full flex-col justify-between overflow-auto bg-background pt-3 transition-all duration-300 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-card lg:flex"
+>
+  <div class="px-4">
+    <!-- Logo -->
+    <div class="relative h-10">
+      <div class="flex items-center" *ngIf="menuService.showSideBar">
+        <a
+          (click)="toggleSidebar()"
+          class="flex cursor-pointer items-center justify-center rounded bg-primary p-2 focus:outline-none focus:ring-1"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="white"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 12.75c1.148 0 2.278.08 3.383.237 1.037.146 1.866.966 1.866 2.013 0 3.728-2.35 6.75-5.25 6.75S6.75 18.728 6.75 15c0-1.046.83-1.867 1.866-2.013A24.204 24.204 0 0 1 12 12.75Zm0 0c2.883 0 5.647.508 8.207 1.44a23.91 23.91 0 0 1-1.152 6.06M12 12.75c-2.883 0-5.647.508-8.208 1.44.125 2.104.52 4.136 1.153 6.06M12 12.75a2.25 2.25 0 0 0 2.248-2.354M12 12.75a2.25 2.25 0 0 1-2.248-2.354M12 8.25c.995 0 1.971-.08 2.922-.236.403-.066.74-.358.795-.762a3.778 3.778 0 0 0-.399-2.25M12 8.25c-.995 0-1.97-.08-2.922-.236-.402-.066-.74-.358-.795-.762a3.734 3.734 0 0 1 .4-2.253M12 8.25a2.25 2.25 0 0 0-2.248 2.146M12 8.25a2.25 2.25 0 0 1 2.248 2.146M8.683 5a6.032 6.032 0 0 1-1.155-1.002c.07-.63.27-1.222.574-1.747m.581 2.749A3.75 3.75 0 0 1 15.318 5m0 0c.427-.283.815-.62 1.155-.999a4.471 4.471 0 0 0-.575-1.752M4.921 6a24.048 24.048 0 0 0-.392 3.314c1.668.546 3.416.914 5.223 1.082M19.08 6c.205 1.08.337 2.187.392 3.314a23.882 23.882 0 0 1-5.223 1.082"
+            />
+          </svg>
+        </a>
+        <b class="ml-1 pl-2 text-sm font-bold text-foreground">
+          {{ appJson.displayName }}
+        </b>
+      </div>
+      <button
+        (click)="toggleSidebar()"
+        class="absolute top-2 right-2 flex h-5 w-5 items-center justify-center rounded text-muted-foreground/50 transition-all duration-200 focus:outline-none hover:text-muted-foreground"
+        [ngClass]="{ 'rotate-180': !menuService.showSideBar }"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Separator -->
+    <div class="pt-3">
+      <hr class="border-dashed border-muted" />
+    </div>
+
+    <!-- Menu Items -->
+    <app-sidebar-menu></app-sidebar-menu>
+  </div>
+
+  <div class="mx-4 my-4 space-y-1">
+    <!-- Version -->
+    <a
+      href="/"
+      class="group flex h-9 cursor-pointer items-center justify-start rounded p-2 hover:bg-card"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-6 text-muted-foreground"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
+        />
+      </svg>
+
+      <!-- <div
+        class="ml-3 truncate text-[10px] font-semibold tracking-wide focus:outline-none"
+      >
+        <span class="rounded-lg bg-primary/10 px-2 font-semibold text-primary"
+          >v{{ appJson.version }}</span
+        >
+      </div>
+
+      <div class="fixed w-full" *ngIf="!menuService.showSideBar">
+        <span
+          class="z-1 absolute left-12 -top-4 w-auto min-w-max origin-left scale-0 rounded-md bg-foreground p-2 text-xs font-bold text-background shadow-md transition-all duration-200 group-hover:scale-100"
+        >
+          v{{ appJson.version }}
+        </span>
+      </div> -->
+    </a>
+  </div>
+</nav>

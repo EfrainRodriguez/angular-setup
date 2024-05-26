@@ -1,0 +1,16 @@
+<div
+  *ngIf="isVisible"
+  class="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center z-50"
+>
+  <div class="bg-white rounded-lg shadow-lg max-w-lg w-full p-4">
+    <div class="flex justify-between items-center border-b pb-2">
+      <h3 class="text-lg font-semibold">Modal Title</h3>
+      <button class="text-gray-600 hover:text-gray-900" (click)="close()">
+        ✕
+      </button>
+    </div>
+    <div class="mt-4">
+      <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+    </div>
+  </div>
+</div>
